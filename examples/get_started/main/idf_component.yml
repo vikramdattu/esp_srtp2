@@ -1,0 +1,7 @@
+## Build-check app for esp_srtp2.
+## During CI / local build, override_path points at the parent repo so we
+## consume the in-tree component instead of the registry version.
+dependencies:
+  vikramdattu/esp_srtp2:
+    version: "*"
+    override_path: ../../..

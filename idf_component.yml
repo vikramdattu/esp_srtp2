@@ -1,0 +1,22 @@
+version: "1.0.0"
+description: "libsrtp2 (Cisco) port for ESP-IDF using mbedtls crypto backend with AES-GCM. Used for SRTP/SRTCP in WebRTC."
+url: "https://github.com/vikramdattu/esp_srtp2"
+repository: "https://github.com/vikramdattu/esp_srtp2.git"
+issues: "https://github.com/vikramdattu/esp_srtp2/issues"
+license: "Apache-2.0 AND BSD-3-Clause"
+tags:
+  - webrtc
+  - srtp
+  - networking
+  - security
+  - mbedtls
+targets:
+  - esp32
+  - esp32s2
+  - esp32s3
+  - esp32c3
+  - esp32c5
+  - esp32c6
+  - esp32p4
+dependencies:
+  idf: ">=5.4"

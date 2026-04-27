@@ -1,0 +1,29 @@
+name: Build check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [esp32, esp32s3, esp32c3, esp32c6, esp32p4]
+        # release-v6.0 dropped temporarily; bring back once gcc-14 / lwIP v6 issues addressed
+        idf_ver: [release-v5.4, release-v5.5]
+    steps:
+      - name: Checkout (with submodules)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build examples/get_started
+        uses: espressif/esp-idf-ci-action@v1
+        with:
+          esp_idf_version: ${{ matrix.idf_ver }}
+          target: ${{ matrix.target }}
+          path: examples/get_started
